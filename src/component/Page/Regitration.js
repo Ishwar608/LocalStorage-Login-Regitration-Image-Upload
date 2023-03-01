@@ -61,7 +61,6 @@ export default function Regitration() {
     },
 
   });
-console.log(data);
   return (
     <Grid component="form" onSubmit={formik.handleSubmit}>
       <Paper elevation={10} style={paperStyle}>

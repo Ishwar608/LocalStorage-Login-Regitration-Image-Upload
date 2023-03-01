@@ -11,7 +11,7 @@ export default function Home() {
       setImage(JSON.parse(localStorage.getItem('IMAGE')))
     }
   },[])
-  console.log(imageList);
+  console.log(imageList.length);
   return (
     <div 
     style={{
@@ -22,7 +22,7 @@ export default function Home() {
     }}
     >
      {
-      imageList.length > -1 ? 
+      imageList.length > 0 ? 
       imageList.map((ele)=>{
         return(<ImageGallary img={ele} />)
       })

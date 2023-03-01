@@ -194,6 +194,7 @@ export default function NavBar({ lgdata, setLgdata }) {
                   <Typography textAlign="center" onClick={() => {
                     setLgdata(false);
                     localStorage.removeItem('USERDATA')
+                    localStorage.removeItem('IMAGE')
                     myNav('/')
                   }}>Logout</Typography>
                 </MenuItem> : ''
