@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import { Avatar, Box, Button, Checkbox, FormControlLabel, Grid, Link, Paper, Typography } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -6,12 +6,21 @@ import * as Yup from "yup";
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 
 
 export default function Login({ setLgdata }) {
 
-  const lData = JSON.parse(localStorage.getItem('USERDATA')).data;
+  const data = useSelector(y => y.regi)
+  useEffect(()=>{
+    localStorage.setItem('USERDATA', JSON.stringify(data))
+},[])
+
+  if(localStorage.length > 0){
+    var lData = JSON.parse(localStorage.getItem('USERDATA')).data;
+  }
+
   const myNav = useNavigate();
 
   const paperStyle = { padding: 20, width: 300, margin: "20px auto" }

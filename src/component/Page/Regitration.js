@@ -13,8 +13,8 @@ import { singUp } from '../Redux Tookit/slice/regiOpration';
 
 export default function Regitration() {
   const data = useSelector(y => y.regi)
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const paperStyle = { padding: 20, width: 300, margin: "20px auto" }
   const avatarStyle = { backgroundColor: '#1bbd7e' }
   const btnstyle = { margin: '40px 0' }
@@ -59,12 +59,10 @@ export default function Regitration() {
    
     },
   });
+ 
   useEffect(()=>{
-    if(data.data.length > 0){
-      localStorage.setItem('USERDATA', JSON.stringify(data))
-    }
-  },[data])
-
+    localStorage.setItem('USERDATA', JSON.stringify(data))
+},[])
   return (
     <Grid component="form" onSubmit={formik.handleSubmit}>
       <Paper elevation={10} style={paperStyle}>
