@@ -41,9 +41,7 @@ export default function Login({ setLgdata }) {
         if (values.email == ele.email && ele.password == values.password) {
           setLgdata(true);
           toast.success("Sucessfully Login");
-          setTimeout(() => {
             myNav('/stuInfo');
-          }, 2000)
         } 
       })
 

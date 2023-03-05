@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import { Avatar, Box, Button, Checkbox, FormControlLabel, Grid, Link, Paper, Typography } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -53,14 +53,18 @@ export default function Regitration() {
     onSubmit: (values) => {
       
       dispatch(singUp(values))
-      setTimeout(()=>{
-        localStorage.setItem('USERDATA', JSON.stringify(data))
+
         toast.success("Sucessfully Sign UP");
         myNav('/login')
-      },2000)
+   
     },
-
   });
+  useEffect(()=>{
+    if(data.data.length > 0){
+      localStorage.setItem('USERDATA', JSON.stringify(data))
+    }
+  },[data])
+
   return (
     <Grid component="form" onSubmit={formik.handleSubmit}>
       <Paper elevation={10} style={paperStyle}>
